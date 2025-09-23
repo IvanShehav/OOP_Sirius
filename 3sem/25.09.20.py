@@ -2,14 +2,19 @@ import Tlogelement
 
 elAnd = Tlogelement.TAnd()
 elNot = Tlogelement.TNot()
-notA  = Tlogelement.TNot()
-notB  = Tlogelement.TNot()
-and1  = Tlogelement.TAnd()
-and2  = Tlogelement.TAnd()
-or1   = Tlogelement.TOr()
 
 elAnd.link(elNot, 1)
 
+notA = Tlogelement.TNot()
+notB = Tlogelement.TNot()
+and1 = Tlogelement.TAnd()
+and2 = Tlogelement.TAnd()
+xor_or = Tlogelement.TOr()
+
+notB.link(and1, 2)      # выход NOT B -> второй вход AND(A, NOT B)
+notA.link(and2, 1)      # выход NOT A -> первый вход AND(NOT A, B)
+and1.link(xor_or, 1)    # выход AND(A, NOT B) -> первый вход OR
+and2.link(xor_or, 2)    # выход AND(NOT A, B) -> второй вход OR
 
 print("  A | B | not(A&B)")
 print("-------------------")
@@ -28,15 +33,8 @@ for A in range(2):
     for B in range(2):
         notA.In1 = bool(A)
         notB.In1 = bool(B)
-
         and1.In1 = bool(A)
-        and1.In2 = notB.Res
-
-        and2.In1 = notA.Res
         and2.In2 = bool(B)
 
-        or1.In1 = and1.Res
-        or1.In2 = and2.Res
-
-        xor_res = or1.Res
+        xor_res = xor_or.Res
         print(" ", A, "|", B, "|", int(xor_res))

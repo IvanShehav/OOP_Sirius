@@ -31,3 +31,17 @@ class Triangle(Shape):
             else:
                 coords.extend(p)
         canvas.create_polygon(*coords, outline='red', fill= '', width=3)
+
+class Polygone4(Shape):
+    def __init__(self, points):
+        self.points = points
+
+    def draw(self, canvas):
+        coords = []
+        for p in self.points:
+            if isinstance(p, Point):
+#isinstance проверяет тип объекта. Если p — объект класса Point, то isinstance(p, Point) возвращает True.
+                coords.extend([p.x, p.y])
+            else:
+                coords.extend(p)
+        canvas.create_polygon(*coords, outline='green', fill= '', width=3)

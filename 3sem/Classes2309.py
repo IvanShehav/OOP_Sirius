@@ -45,3 +45,11 @@ class Polygone4(Shape):
             else:
                 coords.extend(p)
         canvas.create_polygon(*coords, outline='green', fill= '', width=3)
+
+class Cercle(Shape):
+    def __init__(self, x, y, r):
+        self.x, self.y = x,y
+        self.r = r
+
+    def draw(self, canvas):
+        canvas.create_oval(self.x - self.r, self.y - self.r, self.x + self.r, self.y + self.r, outline="blue", fill = "", width=3)

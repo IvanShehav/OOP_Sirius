@@ -18,6 +18,8 @@ tri = Triangle([(200,200), (300, 200), (250, 300)])
 
 sque = Polygone4([(300, 100), (400, 100), (400, 200), (300, 200)])
 
+crcl = Cercle(300, 200, 150)
+
 
 p1.draw(canvas)
 p2.draw(canvas)
@@ -25,6 +27,7 @@ seg1.draw(canvas)
 seg2.draw(canvas)
 tri.draw(canvas)
 sque.draw(canvas)
+crcl.draw(canvas)
 
 
 root.mainloop()

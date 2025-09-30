@@ -44,7 +44,6 @@ class TruthApp:
 
         tk.Label(root, text="Логическое выражение:").pack(pady=(10, 0))
         self.entry_expr = tk.Entry(root, width=100, font=("Arial", 14))
-        self.entry_expr.insert(0, "(¬x ≡ z) → (y ≡ (w ∨ x))")
         self.entry_expr.pack(pady=(0, 10), padx=10)
 
         # Привязка Ctrl+V
@@ -83,7 +82,7 @@ class TruthApp:
         table_frame = tk.Frame(main_frame, relief=tk.RIDGE, borderwidth=2)
         table_frame.pack(side="left", padx=10, pady=5, fill='both', expand=True)
 
-        tk.Label(table_frame, text="ЗАДАНИЕ 1: Таблица Истинности", font=("Arial", 14, "bold")).pack(pady=5)
+        tk.Label(table_frame, text="Таблица Истинности", font=("Arial", 14, "bold")).pack(pady=5)
 
         btn_frame = tk.Frame(table_frame)
         btn_frame.pack(pady=5)
@@ -155,7 +154,7 @@ class TruthApp:
         solver_frame = tk.Frame(main_frame, relief=tk.RIDGE, borderwidth=2)
         solver_frame.pack(side="right", padx=10, pady=5, fill='both', expand=True)
 
-        tk.Label(solver_frame, text="ЗАДАНИЕ 2: Решатель ЕГЭ №2", font=("Arial", 14, "bold")).pack(pady=5)
+        tk.Label(solver_frame, text="Решатель ЕГЭ №2", font=("Arial", 14, "bold")).pack(pady=5)
         tk.Label(solver_frame, text="Частичная Таблица (с F в последнем столбце)", justify=tk.LEFT).pack(anchor='w', padx=5)
 
         grid_frame = tk.Frame(solver_frame)
